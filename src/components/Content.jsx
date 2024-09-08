@@ -19,236 +19,100 @@ import Paragraph from './Paragraph'
 
 
 const Content = () => {
-  return (    
-        <Grid container spacing={0}   
-        sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-            py: 10,
-            px: 2,
-        }}
-        >
-            <Grid item xs={12} sm={12} md={5}
-            component = 'section'
-            >
-                <Title
-                text={
-                    'What we are offering?'
-                }
-                textAlign={'start'}
-                />
-
-                <Typography 
-                variant='h6'
-                component='h4' 
-                sx = {{
-                    fontWeight: '400',
-                    paddingTop: 1,
-                }}
-                >
-                    Property facilities
-                </Typography>
-
-                <Paragraph 
-                text={
-                    ' We have more 5000 reviews\
-                    and our customers trust on out quality\
-                    product and trust own our product.'
-                }
-                maxWidth = {'75%'}
-                mx={0}
-                textAlign={'start'}
-                />
-            </Grid>
-            
-            <Grid item xs={12} sm={6} md={3}>
-                <Card 
-                square={ true }
-                sx={{
-                    minHeight: 200,
-                    display: 'flex',
-                    flexDirection:'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                    border: '1px solid #ccc',
-                }}>
-                    <CardContent>
-                        <IconButton>
-                            <SportsGymnasticsIcon 
-                            fontSize="large"
-                            color="secondary" />
-                        </IconButton>
-                        <Typography 
-                        variant="h5" 
-                        component="p"
-                        sx={{
-                            fontWeight: 700,
-                            textTransform: 'capitalize',
-                        }}
-                        >
-                        gym
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={3}>
-                <Card 
-                square={ true }
-                sx={{ 
-                    minHeight: 200,
-                    display: 'flex',
-                    flexDirection:'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    textAlign: 'center', 
-                    border: '1px solid #ccc'
-                }}>
-                    <CardContent>
-                        <IconButton>
-                            <LocalParkingIcon 
-                            fontSize="large"
-                            color="secondary" />
-                        </IconButton>
-                        <Typography 
-                        variant="h5" 
-                        component="p"
-                        sx={{
-                            fontWeight: 700,
-                            textTransform: 'capitalize',
-                        }}
-                        >
-                        parking
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={2}
-            sx={{
-                display: {xs: 'none', sm: 'block'},
-            }}  
-            >
-                <Card 
-                square={ true }
-                sx={{ 
-                    boxShadow: 'none',
-                    minHeight: 180,
-                    display: 'flex',
-                    flexDirection:'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                }}>
-                    <CardContent>
-                        <ArrowCircleRightRoundedIcon
-                        fontSize="large"
-                        color="secondary" />
-                    </CardContent>
-                </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={3}>    
-                <Card 
-                square={ true }
-                sx={{ 
-                    minHeight: 200,
-                    display: 'flex',
-                    flexDirection:'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    textAlign: 'center', 
-                    border: '1px solid #ccc'
-                }}>
-                    <CardContent>
-                        <IconButton>
-                            <FastfoodOutlinedIcon
-                            fontSize="large"
-                            color="secondary" />
-                        </IconButton>
-                        <Typography 
-                        variant="h5" 
-                        component="p"
-                        sx={{
-                            fontWeight: 700,
-                            textTransform: 'capitalize',
-                        }}
-                        >
-                        local dining
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={3}>
-                <Card 
-                square={ true }
-                sx={{ 
-                    minHeight: 200,
-                    display: 'flex',
-                    flexDirection:'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    textAlign: 'center',                    
-                    border: '1px solid #ccc',
-                }}
-                >
-                    <CardContent>
-                        <IconButton>
-                            <PoolOutlinedIcon 
-                            fontSize="large"
-                            color="secondary" />
-                        </IconButton>
-                        <Typography 
-                        variant="h5" 
-                        component="p"
-                        sx={{
-                            fontWeight: 700,
-                            textTransform: 'capitalize',
-                        }}
-                        >
-                        swimming pool
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={3}>
-                <Card 
-                square={ true }
-                sx={{ 
-                    minHeight: 200,
-                    display: 'flex',
-                    flexDirection:'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    textAlign: 'center', 
-                    border: '1px solid #ccc',
-                }}>
-                    <CardContent>
-                        <IconButton>
-                            <WifiPasswordIcon
-                            fontSize="large"
-                            color="secondary" />
-                        </IconButton>
-                        <Typography 
-                        variant="h5" 
-                        component="p"
-                        sx={{
-                            fontWeight: 700,
-                            textTransform: 'capitalize',
-                        }}
-                        >
-                        Internet
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Grid> 
-        </Grid>
-    );
+    return (
+        <div className="relative overflow-hidden bg-white">
+          <div className="pb-80 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
+            <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
+              <div className="sm:max-w-lg">
+                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                  Summer styles are finally here
+                </h1>
+                <p className="mt-4 text-xl text-gray-500">
+                  This year, our new summer collection will shelter you from the harsh elements of a world that doesn't care
+                  if you live or die.
+                </p>
+              </div>
+              <div>
+                <div className="mt-10">
+                  {/* Decorative image grid */}
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl"
+                  >
+                    <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
+                      <div className="flex items-center space-x-6 lg:space-x-8">
+                        <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                          <div className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
+                            <img
+                              alt=""
+                              src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg"
+                              className="h-full w-full object-cover object-center"
+                            />
+                          </div>
+                          <div className="h-64 w-44 overflow-hidden rounded-lg">
+                            <img
+                              alt=""
+                              src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg"
+                              className="h-full w-full object-cover object-center"
+                            />
+                          </div>
+                        </div>
+                        <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                          <div className="h-64 w-44 overflow-hidden rounded-lg">
+                            <img
+                              alt=""
+                              src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg"
+                              className="h-full w-full object-cover object-center"
+                            />
+                          </div>
+                          <div className="h-64 w-44 overflow-hidden rounded-lg">
+                            <img
+                              alt=""
+                              src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg"
+                              className="h-full w-full object-cover object-center"
+                            />
+                          </div>
+                          <div className="h-64 w-44 overflow-hidden rounded-lg">
+                            <img
+                              alt=""
+                              src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg"
+                              className="h-full w-full object-cover object-center"
+                            />
+                          </div>
+                        </div>
+                        <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                          <div className="h-64 w-44 overflow-hidden rounded-lg">
+                            <img
+                              alt=""
+                              src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg"
+                              className="h-full w-full object-cover object-center"
+                            />
+                          </div>
+                          <div className="h-64 w-44 overflow-hidden rounded-lg">
+                            <img
+                              alt=""
+                              src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg"
+                              className="h-full w-full object-cover object-center"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <a
+                    href="#"
+                    className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
+                  >
+                    Shop Collection
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    
 }
 
 export default Content

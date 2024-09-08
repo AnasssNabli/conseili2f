@@ -5,7 +5,6 @@ import {
     Box,
     List,
     ListItem,
-    
     Typography,
     styled,
     ListItemButton,
@@ -14,8 +13,9 @@ import {
     MenuItem,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
+import DrawerItem from './DrawerItem';
 
-// personalizacao
+// Personalization
 const StyledToolbar = styled(Toolbar)({
     display: 'flex',
     justifyContent: 'space-between',
@@ -23,44 +23,61 @@ const StyledToolbar = styled(Toolbar)({
 
 const ListMenu = styled(List)(({ theme }) => ({
     display: 'none',
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("md")]: {
         display: "flex",
+    },
+}));
+
+const StyledMenu = styled(Menu)(({ theme }) => ({
+    '& .MuiPaper-root': {
+        marginTop: theme.spacing(1),
+        backgroundColor: 'white',
     },
 }));
 
 const Navbar = () => {
     const [anchorEl, setAnchorEl] = useState(null);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const handleMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
+        setIsMenuOpen(true); // Menu is open
     };
 
     const handleMenuClose = () => {
         setAnchorEl(null);
+        setIsMenuOpen(false); // Menu is closed
     };
 
     return (
         <AppBar 
-        component="nav" 
-        position="sticky"
-        sx={{ 
-            backgroundColor: 'orange', 
-        }}
-        elevation={0}
+            component="nav" 
+            position="sticky"
+            sx={{ 
+                backgroundColor: 'white', 
+            }}
+            elevation={0}
         >
             <StyledToolbar>
                 <Typography
-                variant="h6"
-                component="h2"
+                    variant="h6"
+                    component="h2"
                 >
-                    I2F CONSEIL
+                    <img 
+                        src="/img/conseil.png" 
+                        alt="Conseil"
+                        style={{ height: '150px' }} 
+                    />
                 </Typography>
-                
+                <Box sx={{ display: { xs: 'block', md: 'none' } }}>
+                    <DrawerItem /> 
+                </Box>
                 <ListMenu>
+                    {/* List items here */}
                     <ListItem key={"Accueil"}>
                         <ListItemButton component={Link} to={"/"}
                             sx={{
-                                color: '#fff',
+                                color: '#1e2a5a', // Darker text color
                                 "&:hover": {
                                     backgroundColor: 'transparent',
                                     color: '#1e2a5a',
@@ -73,20 +90,26 @@ const Navbar = () => {
                     <ListItem key={"Qui sommes nous"}>
                         <ListItemButton component={Link} to={"/about"}
                             sx={{
-                                color: '#fff',
+                                color: '#1e2a5a', // Darker text color
                                 "&:hover": {
                                     backgroundColor: 'transparent',
                                     color: '#1e2a5a',
-                                }
+                                },
+                                whiteSpace: 'nowrap',
                             }}
                         >
-                            <ListItemText primary={"Qui sommes nous"} />
+                            <ListItemText 
+                                primary={"Qui sommes nous"} 
+                                primaryTypographyProps={{
+                                    noWrap: true,
+                                }}
+                            />
                         </ListItemButton>
                     </ListItem>
                     <ListItem key={"Services"}>
                         <ListItemButton
                             sx={{
-                                color: '#fff',
+                                color: '#1e2a5a', // Darker text color
                                 "&:hover": {
                                     backgroundColor: 'transparent',
                                     color: '#1e2a5a',
@@ -94,9 +117,19 @@ const Navbar = () => {
                             }}
                             onClick={handleMenuOpen}
                         >
-                            <ListItemText primary={"Services"} />
+                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                Services
+                                <Typography 
+                                    sx={{
+                                        marginLeft: 1,
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    {isMenuOpen ? '>' : '˅'}
+                                </Typography>
+                            </Box>
                         </ListItemButton>
-                        <Menu
+                        <StyledMenu
                             anchorEl={anchorEl}
                             open={Boolean(anchorEl)}
                             onClose={handleMenuClose}
@@ -104,10 +137,106 @@ const Navbar = () => {
                                 'aria-labelledby': 'basic-button',
                             }}
                         >
-                            <MenuItem onClick={handleMenuClose} component={Link} to={"/fiscale"}>Fiscale</MenuItem>
-                            <MenuItem onClick={handleMenuClose} component={Link} to={"/commercial"}>Commercial</MenuItem>
-                            <MenuItem onClick={handleMenuClose} component={Link} to={"/verbales"}>Verbales</MenuItem>
-                        </Menu>
+                            <MenuItem 
+                                onClick={handleMenuClose}  
+                                component={Link} 
+                                to={"/fiscale"}
+                                sx={{ 
+                                    fontSize: '0.75rem', 
+                                    fontWeight: '600', 
+                                    color: '#4b5563' // Tailwind `text-blue-gray-500` equivalent
+                                }}
+                            >
+                                Comptable et fiscale
+                            </MenuItem>
+                            <MenuItem 
+                                onClick={handleMenuClose} 
+                                component={Link} 
+                                to={"/paie-conseil-social"}
+                                sx={{ 
+                                    fontSize: '0.75rem', 
+                                    fontWeight: '600', 
+                                    color: '#4b5563'
+                                }}
+                            >
+                                Paie et conseil social
+                            </MenuItem>
+                            <MenuItem 
+                                onClick={handleMenuClose} 
+                                component={Link} 
+                                to={"/conseil-gestion"}
+                                sx={{ 
+                                    fontSize: '0.75rem', 
+                                    fontWeight: '600', 
+                                    color: '#4b5563'
+                                }}
+                            >
+                                Conseil en gestion
+                            </MenuItem>
+                            <MenuItem 
+                                onClick={handleMenuClose} 
+                                component={Link} 
+                                to={"/audit"}
+                                sx={{ 
+                                    fontSize: '0.75rem', 
+                                    fontWeight: '600', 
+                                    color: '#4b5563'
+                                }}
+                            >
+                                Audit
+                            </MenuItem>
+                            <MenuItem 
+                                onClick={handleMenuClose} 
+                                component={Link} 
+                                to={"/formation-comptabilite-fiscalite"}
+                                sx={{ 
+                                    fontSize: '0.75rem', 
+                                    fontWeight: '600', 
+                                    color: '#4b5563'
+                                }}
+                            >
+                                Formation Comptabilité et Fiscalité
+                            </MenuItem>
+                        </StyledMenu>
+                    </ListItem>
+                    <ListItem key={"Contact us"}>
+                        <ListItemButton component={Link} to={"/Contact"}
+                            sx={{
+                                color: '#1e2a5a', // Darker text color
+                                "&:hover": {
+                                    backgroundColor: 'transparent',
+                                    color: '#1e2a5a',
+                                },
+                                whiteSpace: 'nowrap',
+                            }}
+                        >
+                            <ListItemText primary={"Contact us"} />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem key={"Votre Devis"}>
+                        <ListItemButton component={Link} to={"/Votre-Devis"}
+                            sx={{
+                                color: '#1e2a5a', // Darker text color
+                                "&:hover": {
+                                    backgroundColor: 'transparent',
+                                    color: '#1e2a5a',
+                                },
+                                whiteSpace: 'nowrap',
+                            }}
+                        >
+                            <span 
+                                style={{ 
+                                    backgroundColor: '#17a2b8', // Bootstrap info color
+                                    color: 'white',
+                                    borderRadius: '10px',
+                                    padding: '2px 8px',
+                                    fontSize: '1.25rem',
+                                    fontWeight: 'bold',
+                                }}
+                            >
+                                Votre Devis
+                            </span>
+                        </ListItemButton>
                     </ListItem>
                 </ListMenu>
             </StyledToolbar>

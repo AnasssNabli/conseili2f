@@ -93,7 +93,6 @@ const GetStarted = () => {
                     <Title
                     text={
                         'Match with the best agent'
-                        
                     }
                     textAlign={'start'}
                     />
